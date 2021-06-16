@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "an encrypted website where small brands are able to connect with boutiques",
   "main": "server.js",
+  "engines": {
+    "npm": "6.x"
+  },
+
+
   "dependencies": {
     "body-parser": "^1.19.0",
     "dotenv": "^10.0.0",
