@@ -1,9 +1,19 @@
 const { MongoClient } = require("mongodb");
+const express = require("express");
+//const bodyParser = require("body-parser");
+//const cors = require("cors");
+
+//const app = express();
+
 //const mongoose = require("mongoose");
 
+//const db = require("./config/db.config");
+
+const dotenv = require("dotenv");
+dotenv.config();
 
 async function main(){
-    const url = " mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false"
+    const url = "mongodb+srv://root:root@cluster0.3qmjf.mongodb.net/sample_mflix"
 
     const client = new MongoClient(url);
 
@@ -18,7 +28,7 @@ await findOneBrandByName(client, "tori");
 }
 }
 
-main().catch(console.error);
+main().catch(console.error);``
 
 async function findOneBrandByName(client, nameOfBrand){
 const result = await client.db("user_brand_db").collection("userData").fineOne({name: nameOfBrand});
@@ -50,7 +60,8 @@ async function createUser(client, newUser) {
 
 
 async function main(){
-    const uri = " mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false"
+    const uri = process.env.MONGODBCONNECT;
+    console.log(uri);
 const client = new MongoClient(uri);
 
 try {
